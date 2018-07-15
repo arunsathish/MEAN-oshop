@@ -23,7 +23,7 @@ export class ProductFormComponent implements OnInit {
     private productService: ProductService) {
 
     //From the MAP operator along with the Pipe,its the template code used for fetching objects in the subtree of the firebase Database. so copy as it is for that purpose.
-    this.categories$ = categoryService.getCategories().pipe(
+    this.categories$ = categoryService.getAll().pipe(
       map(changes => { return changes.map(c => ({ key: c.payload.key, ...c.payload.val() })); }));
 
     this.id = this.route.snapshot.paramMap.get('id');
